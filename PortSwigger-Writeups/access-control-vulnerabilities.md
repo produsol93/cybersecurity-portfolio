@@ -112,9 +112,13 @@ the back-end application is built on a framework that supports the X-Original-UR
 
 <img width="800" height="600" alt="image" src="https://github.com/user-attachments/assets/093bf504-dd35-42a5-99e3-4452b50257f3" />
 
-
 ### Result
 Target account sucessfully deleted.
+
+### Mitigation
+- Do not trust client-controlled routing headers such as `X-Original-URL` or `X-Rewrite-URL`.
+- Enforce authorization checks on the backend after request routing is fully resolved.
+- Log and monitor abnormal header usage and path override attempts.
 
 ---
 
