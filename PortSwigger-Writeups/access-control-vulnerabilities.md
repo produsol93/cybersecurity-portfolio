@@ -98,19 +98,23 @@ Gained admin privileges, and deleted targer user account.
 - Implement proper access control validation to ensure only authorized users can access administrative functionality.
 - Log and monitor privilege changes to detect and prevent unauthorized role escalation.
 
-
 ---
 
-## Lab 5 — Horizontal Privilege Escalation (IDOR)
+## Lab 5 — URL-based access control can be circumvented
 
 ### Description
-User ID parameter allowed access to other user accounts.
+the back-end application is built on a framework that supports the X-Original-URL header.
 
 ### Exploitation
-Changed user identifier in request.
+1. Intercepted request to /admin and sent to Burp Repeater.
+2. Added header to bypass frontend control: X-Original-Url, and checked the response.
+3. Identified delete endpoint, and sent crafted request.
+
+<img width="800" height="600" alt="image" src="https://github.com/user-attachments/assets/093bf504-dd35-42a5-99e3-4452b50257f3" />
+
 
 ### Result
-Accessed another user's data.
+Target account sucessfully deleted.
 
 ---
 
