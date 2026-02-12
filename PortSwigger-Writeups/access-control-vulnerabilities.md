@@ -30,7 +30,6 @@ Admin panel was accessible without authentication.
 <img width="800" height="600" alt="image" src="https://github.com/user-attachments/assets/7c96c18f-9a10-4a63-83a5-2327702a4918" />
 
 ### Result
-
 Accessed administrative functionality without login.
 
 ### Mitigation
