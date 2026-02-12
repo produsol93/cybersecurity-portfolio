@@ -1,4 +1,3 @@
-<img width="1201" height="721" alt="image" src="https://github.com/user-attachments/assets/52341c1d-3118-4bf0-a295-e69a297052b9" /><img width="1201" height="721" alt="image" src="https://github.com/user-attachments/assets/8e0a3a05-965a-4073-9a6d-567b0c1ea6af" />
 # Access Control Vulnerabilities – PortSwigger Web Security Academy
 
 ## Overview
