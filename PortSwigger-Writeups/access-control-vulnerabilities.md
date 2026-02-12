@@ -39,8 +39,15 @@ Restrict access using proper authentication and authorization checks.
 
 ## Lab 2 — Unprotected Admin Functionality with Unpredictable URL
 
+### Description
+Admin panel was located at an unpredictable location, but the location is disclosed somewhere in the application.
+
 ### Exploitation
-Discovered hidden admin URL via source code / robots / guessing.
+1. Analyzed the application structure via **Burp Suite Target → Site Map**.
+2. Discovered the **/admin** page link and accessed the administrative panel directly.
+3. Removed user's account successfully.
+
+<img width="800" height="600" alt="image" src="https://github.com/user-attachments/assets/9a76b821-d563-4fb0-b21b-2fe2db769af5" />
 
 ### Result
 Accessed admin functionality.
