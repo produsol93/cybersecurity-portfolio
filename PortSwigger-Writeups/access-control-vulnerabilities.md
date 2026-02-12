@@ -122,7 +122,10 @@ Target account sucessfully deleted.
 
 ---
 
-## Lab 6 — Horizontal to Vertical Privilege Escalation
+## Lab 6 — Method-based access control can be circumvented
+
+### Description
+the back-end application is built on a framework that supports the X-Original-URL header.
 
 ### Exploitation
 Used IDOR + role change to gain admin privileges.
