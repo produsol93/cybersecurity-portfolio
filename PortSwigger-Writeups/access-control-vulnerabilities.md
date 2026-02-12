@@ -43,14 +43,19 @@ Restrict access using proper authentication and authorization checks.
 Admin panel was located at an unpredictable location, but the location is disclosed somewhere in the application.
 
 ### Exploitation
-1. Analyzed the application structure via **Burp Suite Target → Site Map**.
-2. Discovered the **/admin** page link and accessed the administrative panel directly.
-3. Removed user's account successfully.
+1. Analyzed the application structure using **Burp Suite Target → Site Map**.
+2. During the analysis, discovered the hidden administrative endpoint **/admin-xxxx** and confirmed that the admin panel was accessible directly without authentication.
+3. Used the administrative functionality to delete the target user account, successfully reproducing the vulnerability.
 
 <img width="800" height="600" alt="image" src="https://github.com/user-attachments/assets/9a76b821-d563-4fb0-b21b-2fe2db769af5" />
 
 ### Result
-Accessed admin functionality.
+Accessed admin functionality, and deleted targer user account.
+
+### Mitigation
+- Protect the admin panel with proper authentication and authorization.
+- Do not rely on hidden or unpredictable URLs for security.
+- Restrict access to administrative functions to authorized users only.
 
 ---
 
