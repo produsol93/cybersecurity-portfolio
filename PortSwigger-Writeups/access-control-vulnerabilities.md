@@ -61,11 +61,23 @@ Accessed admin functionality, and deleted targer user account.
 
 ## Lab 3 — User Role Controlled by Request Parameter
 
+### Description
+Admin panel was accessible with editing forgeable cookie.
+
 ### Exploitation
-Modified role parameter in request using Burp.
+1. Accessed the admin page.
+2. Sent the request to Repeater and modified the `role` parameter using Burp Suite to gain administrative privileges.
+3. Deleted the target account successfully.
+
+<img width="800" height="600" alt="image" src="https://github.com/user-attachments/assets/6e8fa4cd-be6f-4c64-b517-8392153111d8" />
 
 ### Result
-Gained admin privileges.
+Gained admin privileges, and deleted targer user account.
+
+### Mitigation
+- Enforce proper server-side authorization checks for all sensitive actions.
+- Do not trust client-side parameters such as `role` for access control decisions.
+- Restrict administrative functions to authorized users only.
 
 ---
 
