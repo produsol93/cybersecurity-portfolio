@@ -1,4 +1,4 @@
-
+<img width="1201" height="721" alt="image" src="https://github.com/user-attachments/assets/52341c1d-3118-4bf0-a295-e69a297052b9" /><img width="1201" height="721" alt="image" src="https://github.com/user-attachments/assets/8e0a3a05-965a-4073-9a6d-567b0c1ea6af" />
 # Access Control Vulnerabilities – PortSwigger Web Security Academy
 
 ## Overview
@@ -25,12 +25,11 @@ Admin panel was accessible without authentication.
 ### Exploitation Steps
 1. Analyzed the application structure via **Burp Suite Target → Site Map**.
 2. Performed content discovery using the **Burp Suite Crawler** to identify hidden endpoints.
-3. Discovered the **/admin** interface and accessed the administrative panel directly.
 
 <img width="800" height="600" alt="image" src="https://github.com/user-attachments/assets/7c96c18f-9a10-4a63-83a5-2327702a4918" />
 
 ### Result
-Accessed administrative functionality without login.
+Discovered the **/admin** interface and accessed the administrative panel directly.
 
 ### Mitigation
 Restrict access using proper authentication and authorization checks.
@@ -45,12 +44,11 @@ Admin panel was located at an unpredictable location, but the location is disclo
 ### Exploitation
 1. Analyzed the application structure using **Burp Suite Target → Site Map**.
 2. During the analysis, discovered the hidden administrative endpoint **/admin-xxxx** and confirmed that the admin panel was accessible directly without authentication.
-3. Used the administrative functionality to delete the target user account, successfully reproducing the vulnerability.
 
 <img width="800" height="600" alt="image" src="https://github.com/user-attachments/assets/9a76b821-d563-4fb0-b21b-2fe2db769af5" />
 
 ### Result
-Accessed admin functionality, and deleted targer user account.
+Used the administrative functionality to delete the target user account, successfully reproducing the vulnerability.
 
 ### Mitigation
 - Protect the admin panel with proper authentication and authorization.
@@ -67,7 +65,6 @@ Admin panel was accessible with editing forgeable cookie.
 ### Exploitation
 1. Accessed the admin page.
 2. Sent the request to Repeater and modified the `role` parameter using Burp Suite to gain administrative privileges.
-3. Deleted the target account successfully.
 
 <img width="800" height="600" alt="image" src="https://github.com/user-attachments/assets/070abf1e-8a2f-478b-bb81-be32489b819a" />
 
@@ -81,10 +78,27 @@ Gained admin privileges, and deleted targer user account.
 
 ---
 
-## Lab 4 — User Role Stored in Cookie
+## Lab 4 — User Role can be modified in User Profile
+
+### Description
+Admin panel was only accessible to logged-in users with a roleid of 2.
 
 ### Exploitation
-Modified cookie value to escalate privileges.
+1. logged-in the supplied credential, and access "my account" page.
+2. Sent the provided features in page, and observed it.
+3. Added the roleid value into the request body.
+
+<img width="800" height="600" alt="image" src="https://github.com/user-attachments/assets/29afc8c3-bf8c-48b4-bb54-4951f190543a" />
+
+### Result
+Gained admin privileges, and deleted targer user account.
+
+### Mitigation
+- Enforce strict server-side authorization checks for all privileged actions.
+- Store and manage user roles securely on the server side (e.g., session or database), and ignore any role-related values sent by the client.
+- Implement proper access control validation to ensure only authorized users can access administrative functionality.
+- Log and monitor privilege changes to detect and prevent unauthorized role escalation.
+
 
 ---
 
