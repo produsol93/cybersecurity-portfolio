@@ -69,7 +69,7 @@ Admin panel was accessible with editing forgeable cookie.
 2. Sent the request to Repeater and modified the `role` parameter using Burp Suite to gain administrative privileges.
 3. Deleted the target account successfully.
 
-<img width="800" height="600" alt="image" src="https://github.com/user-attachments/assets/6e8fa4cd-be6f-4c64-b517-8392153111d8" />
+<img width="800" height="600" alt="image" src="https://github.com/user-attachments/assets/c47db5c7-9079-4941-aeee-3f0b174b6c40" />
 
 ### Result
 Gained admin privileges, and deleted targer user account.
