@@ -23,9 +23,13 @@ Covered topics:
 Admin panel was accessible without authentication.
 
 ### Exploitation Steps
-(Describe how you discovered and accessed /admin)
+1. Analyzed the application structure via **Burp Suite Target → Site Map**.
+2. Performed content discovery using the **Burp Suite Crawler** to identify hidden endpoints.
+3. Discovered the **/admin** interface and accessed the administrative panel directly.
 
 ### Result
+<img width="1689" height="1122" alt="image" src="https://github.com/user-attachments/assets/7c96c18f-9a10-4a63-83a5-2327702a4918" />
+
 Accessed administrative functionality without login.
 
 ### Mitigation
