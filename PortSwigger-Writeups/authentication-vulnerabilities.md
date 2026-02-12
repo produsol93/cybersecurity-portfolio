@@ -1,112 +1,166 @@
 # Authentication Vulnerabilities – PortSwigger Web Security Academy
 
 ## Overview
-This section explores common **authentication-related vulnerabilities** identified through PortSwigger Web Security Academy labs. The objective was to understand how weak authentication mechanisms can be exploited to gain unauthorized access to user accounts.
+This document contains full writeups for all Authentication labs completed in PortSwigger Web Security Academy.  
+The objective was to analyze weaknesses in authentication mechanisms and understand how attackers bypass login protections.
 
-Topics covered:
+Covered topics:
 - Username enumeration
 - Brute-force attacks
 - Broken authentication logic
-- Two-factor authentication (2FA) bypass
+- Password reset flaws
+- Two-factor authentication bypass
+- Session handling weaknesses
 
 ---
 
 ## Lab 1 — Username Enumeration via Error Messages
-
 **Severity:** Medium  
 **OWASP:** A07 – Identification and Authentication Failures  
 
 ### Description
-The application returns different error messages depending on whether the username exists. This behavior allows attackers to identify valid usernames.
+Different error messages reveal whether a username exists.
 
 ### Exploitation Steps
-1. Attempt login using random username and password.
-2. Observe error responses:
-   - **"Invalid username"** → Username does not exist
-   - **"Incorrect password"** → Username exists
-3. Identify a valid username.
-4. Perform targeted password brute-force attack.
+(Describe how you detected valid username)
 
-### Impact
-- Enables targeted brute-force attacks
-- Increases likelihood of account compromise
+### Result
+Successfully identified a valid username.
 
 ### Mitigation
-- Use generic authentication error messages
-- Implement rate limiting and login attempt monitoring
-- Enable account lockout after multiple failed attempts
+Use generic error messages and rate limiting.
 
 ---
 
 ## Lab 2 — Broken Brute-force Protection
-
 **Severity:** High  
-**OWASP:** A07 – Identification and Authentication Failures  
-
-### Description
-The application does not properly prevent repeated login attempts, allowing automated password guessing.
 
 ### Exploitation
-Used **Burp Suite Intruder** to automate login attempts after identifying a valid username.
+Used Burp Intruder to brute-force password.
 
-### Impact
-- Attackers can guess weak passwords
-- Leads to account takeover
+### Result
+Password guessed successfully.
 
 ### Mitigation
-- Implement rate limiting
-- Enforce CAPTCHA
-- Lock accounts after repeated failed login attempts
-- Monitor suspicious login behavior
+Account lockout, CAPTCHA, rate limiting.
 
 ---
 
-## Lab 3 — Two-Factor Authentication (2FA) Bypass
-
-**Severity:** High  
-**OWASP:** A07 – Identification and Authentication Failures  
+## Lab 3 — Username Enumeration via Response Timing
 
 ### Description
-The 2FA verification step can be bypassed due to improper server-side validation.
+Response time difference reveals valid username.
 
 ### Exploitation
-Accessed authenticated endpoints without completing the 2FA process by skipping the verification step.
+Measured server response time using Burp Intruder.
 
-### Impact
-- Full account takeover possible
-- Sensitive user data exposure
-- Authentication flow integrity compromised
+### Result
+Identified valid username.
 
-### Mitigation
-- Enforce server-side verification of authentication flow
-- Bind session strictly to completed login + 2FA
-- Prevent direct access to authenticated resources without full verification
+---
+
+## Lab 4 — Username Enumeration via Account Lock
+
+### Exploitation
+Observed account lock behavior to determine valid username.
+
+---
+
+## Lab 5 — Broken Brute-force Protection, IP Block Bypass
+
+### Exploitation
+Used header/IP manipulation to bypass login protection.
+
+---
+
+## Lab 6 — Username Enumeration via Password Reset
+
+### Exploitation
+Password reset behavior reveals valid user.
+
+---
+
+## Lab 7 — Password Reset Poisoning
+
+### Exploitation
+Manipulated password reset link to hijack account.
+
+---
+
+## Lab 8 — Password Reset Broken Logic
+
+### Exploitation
+Abused flawed password reset flow.
+
+---
+
+## Lab 9 — Broken Authentication Cookie
+
+### Exploitation
+Manipulated "stay logged in" cookie.
+
+---
+
+## Lab 10 — Offline Password Cracking
+
+### Exploitation
+Extracted hash and cracked password offline.
+
+---
+
+## Lab 11 — 2FA Simple Bypass
+
+### Exploitation
+Skipped 2FA step and accessed account.
+
+---
+
+## Lab 12 — 2FA Broken Logic
+
+### Exploitation
+Abused flawed verification logic.
+
+---
+
+## Lab 13 — Brute-forcing 2FA Code
+
+### Exploitation
+Automated guessing of verification code.
+
+---
+
+## Lab 14 — Advanced Authentication Bypass
+
+### Exploitation
+Combined logic flaws to bypass authentication.
 
 ---
 
 ## Key Takeaways
-- Authentication mechanisms must not leak system behavior.
-- Username enumeration significantly increases attack success.
-- Brute-force protections are critical for login security.
-- 2FA must always be enforced server-side.
-- Authentication and authorization are separate security controls.
+- Authentication must not leak system behavior
+- Brute-force protection is critical
+- Password reset flows are common attack surface
+- 2FA must always be validated server-side
+- Session security is essential
 
 ---
 
 ## Tools Used
 - Burp Suite (Proxy, Intruder)
+- Burp Repeater
 - Browser Developer Tools
 
 ---
 
 ## Skills Gained
-- Identifying authentication vulnerabilities
-- Performing brute-force attack analysis
-- Understanding authentication bypass techniques
-- Evaluating secure authentication design
+- Username enumeration techniques
+- Brute-force attack analysis
+- Authentication bypass
+- Password reset exploitation
+- Session & cookie manipulation
 
 ---
 
 ## Conclusion
-Authentication flaws remain one of the most common and critical security risks in web applications. Proper login validation, brute-force protection, and strict authentication flow enforcement are essential to prevent unauthorized access and account compromise.
+Authentication flaws remain one of the most critical risks in modern web applications. Proper validation, brute-force protection, and secure authentication flow enforcement are essential to prevent unauthorized access.
 
