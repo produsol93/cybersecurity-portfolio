@@ -125,10 +125,19 @@ Target account sucessfully deleted.
 ## Lab 6 — Method-based access control can be circumvented
 
 ### Description
-the back-end application is built on a framework that supports the X-Original-URL header.
+exploit the flawed access controls to promote yourself to become an administrator.
 
 ### Exploitation
 Used IDOR + role change to gain admin privileges.
+
+<img width="800" height="600" alt="image" src="https://github.com/user-attachments/assets/c9990913-9d67-40fb-8021-1ed74965b2ae" />
+
+
+### Result
+
+
+
+### Mitigation
 
 ---
 
