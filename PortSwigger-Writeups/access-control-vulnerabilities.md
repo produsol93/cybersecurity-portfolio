@@ -141,10 +141,18 @@ Used IDOR + role change to gain admin privileges.
 
 ---
 
-## Lab 7 — Insecure Direct Object Reference (Password Change)
+## Lab 7 — User ID controlled by request parameter
+
+### Description
+ge a
 
 ### Exploitation
-Modified request to change another user's password.
+Modified request toa chnge another user's password.
+
+### Result
+
+### Mitigation
+
 
 ---
 
