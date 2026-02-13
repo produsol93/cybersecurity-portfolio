@@ -139,20 +139,32 @@ Used IDOR + role change to gain admin privileges.
 
 ### Mitigation
 
+
+
 ---
 
 ## Lab 7 — User ID controlled by request parameter
 
 ### Description
-ge a
+horizontal privilege escalation vulnerability
 
 ### Exploitation
-Modified request toa chnge another user's password.
+1. log-in with a normal user account, and intercept request to /my-account using Burp Suite.
+2. Identify user-controlled parameter, and modify the value.
+3. Extract administrator API key from the response.
+
+<img width="800" height="600" alt="image" src="https://github.com/user-attachments/assets/eea3cace-e7f8-4d9a-883e-a9909c3542fd" />
+
 
 ### Result
+Submit the API key to solve the lab.
 
 ### Mitigation
 
+- Enforced server-side authorization to ensure users can only access their own resources.
+- Removed reliance on user-controlled identifiers from requests; used session-based user identity instead.
+- Replaced predictable identifiers with non-enumerable values (e.g., UUID).
+- Performed regular access-control testing to prevent IDOR vulnerabilities.
 
 ---
 
